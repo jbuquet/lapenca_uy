@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407003754) do
+ActiveRecord::Schema.define(version: 20140407010234) do
 
   create_table "arenas", force: true do |t|
     t.string   "name"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140407003754) do
     t.string   "coach"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "group"
   end
 
 end
