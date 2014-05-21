@@ -19,16 +19,10 @@ class MatchesController < ApplicationController
   def show
   end
 
-  def edit
-    @match = Match.find(params[:id])
-  end
-
   def update
     @match = Match.find(params[:id])
     if @match.update_attributes(params.require(:match).permit(:team1_id, :team2_id, :date, :arena_id))
       redirect_to matches_path
-    else
-      render :edit
     end
   end
 end

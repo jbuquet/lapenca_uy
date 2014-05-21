@@ -1,9 +1,10 @@
 LapencaUy::Application.routes.draw do
   devise_for :members
 
-  resources :teams
-  resources :arenas
-  resources :matches
+  resources :teams, only: [:index, :show]
+  resources :arenas, only: [:index, :show]
+  resources :matches, only: [:index, :show, :update]
+
   resources :forecasts do
     collection do
       get :forecast

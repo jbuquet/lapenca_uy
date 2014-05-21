@@ -1,31 +1,29 @@
 <h1>Listing teams</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Coach</th>
-      <th>Group</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
+<% @teams.sort_by {|team| team.group}.group_by {|team| team.group}.each do
+|group, teams| %>
+  <p> <b> <%= "GROUP #{group}" %> </b> </p>
+  <table>
+    <thead>
       <tr>
-        <td><%= team.name %></td>
-        <td><%= team.coach %></td>
-        <td><%= team.group %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Coach</th>
+        <th>Group</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Team', new_team_path %>
+    <tbody>
+      <% teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= team.coach %></td>
+          <td><%= team.group %></td>
+          <td><%= link_to 'Show', team %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
