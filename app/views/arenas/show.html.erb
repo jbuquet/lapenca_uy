@@ -1,2 +1,19 @@
-<h1>Arenas#show</h1>
-<p>Find me in app/views/arenas/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @arena.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @arena.city %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @arena.capacity %>
+</p>
+
+<%= link_to 'Edit', edit_arena_path(@arena) %> |
+<%= link_to 'Back', arenas_path %>

@@ -1,0 +1,6 @@
+<h1>Ingresar Resultados</h1>
+<%= form_tag do %>
+  <%= render partial: 'match_forecast', collection: @matches, as: :match_forecast %>
+  <br />
+  <%= submit_tag 'Save' %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407010234) do
+ActiveRecord::Schema.define(version: 20140520235046) do
 
   create_table "arenas", force: true do |t|
     t.string   "name"
@@ -22,9 +22,13 @@ ActiveRecord::Schema.define(version: 20140407010234) do
   end
 
   create_table "forecasts", force: true do |t|
-    t.integer  "member_id"
+    t.integer  "match_id"
+    t.integer  "team1_score"
+    t.integer  "team2_score"
+    t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "member_id"
   end
 
   create_table "matches", force: true do |t|
@@ -58,16 +62,6 @@ ActiveRecord::Schema.define(version: 20140407010234) do
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
-
-  create_table "results", force: true do |t|
-    t.integer  "match_id"
-    t.integer  "team1_score"
-    t.integer  "team2_score"
-    t.integer  "winner_id"
-    t.integer  "forecast_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "teams", force: true do |t|
     t.string   "name"

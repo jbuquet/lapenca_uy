@@ -1,2 +1,31 @@
-<h1>Arenas#index</h1>
-<p>Find me in app/views/arenas/index.html.erb</p>
+<h1>Listing arenas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Capacity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @arenas.each do |arena| %>
+      <tr>
+        <td><%= arena.name %></td>
+        <td><%= arena.city %></td>
+        <td><%= arena.capacity %></td>
+        <td><%= link_to 'Show', arena %></td>
+        <td><%= link_to 'Edit', edit_arena_path(arena) %></td>
+        <td><%= link_to 'Destroy', arena, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Arena', new_arena_path %>

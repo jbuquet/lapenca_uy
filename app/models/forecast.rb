@@ -1,4 +1,4 @@
 class Forecast < ActiveRecord::Base
-	has_many :results
-	belongs_to :member
+  belongs_to :member
+  belongs_to :match
 end
