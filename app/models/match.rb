@@ -5,6 +5,7 @@ class Match < ActiveRecord::Base
   belongs_to :team1, :class_name => 'Team'
   belongs_to :team2, :class_name => 'Team'
   belongs_to :arena
+  has_many   :forecasts
 
   def winner
     raise 'Match score not entered' unless team1_score && team2_score

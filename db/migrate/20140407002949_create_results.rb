@@ -5,7 +5,6 @@ class CreateResults < ActiveRecord::Migration
       t.integer :team1_score
       t.integer :team2_score
       t.integer :winner_id
-      t.integer :forecast_id
 
       t.timestamps
     end
