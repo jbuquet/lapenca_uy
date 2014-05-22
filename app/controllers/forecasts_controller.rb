@@ -62,12 +62,12 @@ class ForecastsController < ApplicationController
   end
 
   def forecast
-    @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member_id}")
+    @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member.id}")
   end
 
   def save_forecast
     params.require(:forecast).each do |match_id, attrs|
-      forecast = Forecast.find_or_create_by(member_id: current_member_id, match_id: match_id)
+      forecast = Forecast.find_or_create_by(member_id: current_member.id, match_id: match_id)
       puts forecast.inspect
       forecast.update_attributes(attrs)
     end
