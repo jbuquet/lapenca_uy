@@ -8,7 +8,8 @@ window.forecast = () ->
   table = []
   $.each teams, (index, team) ->
     team_data = {team: team, pts: 0, dif: 0}
-    $("input.#{team}").each (index, input) ->
+    sanitized = team.replace(///\ ///g, '.')
+    $("input.#{sanitized}").each (index, input) ->
       $input = $(input)
       rival = $input.closest('.row').find("input:not(.#{team})")
       if $input.val() != '' && rival.val() != ''
