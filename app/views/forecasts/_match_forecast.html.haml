@@ -1,0 +1,12 @@
+%li
+  .large-12.columns
+    .small-3.columns
+      = match_forecast.date
+    .small-3.columns
+      = match_forecast.team1.try :name
+    .small-3.columns
+      = text_field_tag "forecast[#{match_forecast.id}][team1_score]", match_forecast.forecasts.first.try(:team1_score)
+    .small-3.columns
+      = text_field_tag "forecast[#{match_forecast.id}][team2_score]", match_forecast.forecasts.first.try(:team2_score)
+    .small-3.columns
+      = match_forecast.team2.try :name

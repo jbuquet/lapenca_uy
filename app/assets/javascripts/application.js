@@ -14,4 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation.min
+//= require foundation/foundation.topbar
 //= require_tree .
+//= require_self
+
+function ready(){
+  $(document).foundation();
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

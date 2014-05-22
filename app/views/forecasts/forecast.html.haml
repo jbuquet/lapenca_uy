@@ -1,0 +1,7 @@
+%h1
+  Ingresar Resultados
+= form_tag do
+  .small-block-grid-3
+    = render partial: 'match_forecast', collection: @matches, as: :match_forecast
+  <br />
+  = submit_tag 'Save'
