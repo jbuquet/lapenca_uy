@@ -62,7 +62,8 @@ class ForecastsController < ApplicationController
   end
 
   def forecast
-    @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member.id}")
+    @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member.id}").group_by(&:group)
+    puts @matches.inspect
   end
 
   def save_forecast

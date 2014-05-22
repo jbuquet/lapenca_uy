@@ -18,8 +18,19 @@
 //= require_tree .
 //= require_self
 
+String.prototype.titleize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 function ready(){
   $(document).foundation();
+
+  $('li .row.forecast_inputs').on('change keyup', 'input', function(ev){
+    forecast();
+  });
+  $('dd').on('click', 'a', function(ev){
+    setTimeout(forecast, 50);
+  });
 }
 
 $(document).ready(ready);
