@@ -1,4 +1,5 @@
 class ForecastsController < ApplicationController
+  before_action :authenticate_member!
   before_action :set_forecast, only: [:show, :edit, :update, :destroy]
 
   # GET /forecasts

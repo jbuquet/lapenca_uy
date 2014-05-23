@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  height: 100%;
+
+  background: image-url('login-background.jpg') no-repeat center center fixed;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .login {
+    width: 320px;
+    height: 225px;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -160px;
+    margin-top: -112.5px;
+
+    .login-tabs {
+      text-align: center;
+
+      a {
+        .half {
+          width: 50%;
+          float: left;
+        }
+
+        .active {
+          border-bottom: 2px solid dodgerblue;
+        }
+      }
+    }
+
+    .login-form {
+      .login-input-line {
+        height: 20px;
+        margin: 40px 40px;
+
+        line-height: 20px;
+        vertical-align: middle;
+
+        .login-label {
+          float: left;
+          width: 20%;
+
+          font-size: 12px;
+          color: #FFFFFF;
+        }
+
+        .login-field {
+          padding: 0 10px;
+          float:right;
+          width: 60%;
+
+          background-color: #FFFFFF;
+        }
+      }
+
+      .button {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+
+        height: 16px;
+        line-height: 0;
+
+        margin-right: 20px;
+      }
+    }
+  }
+}

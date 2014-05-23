@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Team.delete_all
 brasil = Team.create(name: 'Brasil', coach: 'Luiz Felipe Scolari', group: 'A')
 croacia = Team.create(name: 'Croacia', coach: 'Niko Kovac', group: 'A')

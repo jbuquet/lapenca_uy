@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20140521040710) do
     t.integer  "team1_score"
     t.integer  "team2_score"
     t.integer  "winner_id"
-    t.integer  "forecast_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
