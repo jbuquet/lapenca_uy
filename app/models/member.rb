@@ -5,4 +5,5 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :forecasts
+  has_one  :member_group
 end

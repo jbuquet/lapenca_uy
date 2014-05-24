@@ -112,3 +112,7 @@ Match.create(team1_id: belgica.id, team2_id: rusia.id, group: 'H')
 Match.create(team1_id: argelia.id, team2_id: corea.id, group: 'H')
 Match.create(team1_id: belgica.id, team2_id: corea.id, group: 'H')
 Match.create(team1_id: argelia.id, team2_id: rusia.id, group: 'H')
+
+MemberGroup.delete_all
+MemberGroup.create(group_name: 'Test Group 1', token: '1234')
+MemberGroup.create(group_name: 'Test Group 2', token: 'ABCD')
