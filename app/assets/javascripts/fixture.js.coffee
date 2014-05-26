@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-window.forecast = () ->
+window.fixture = () ->
   groups = $('.group-panel')
 
   for group in groups
@@ -13,11 +13,11 @@ window.forecast = () ->
     $.each teams, (index, team) ->
       team_data = {team: team, pts: 0, dif: 0}
       sanitized = team.replace(///\ ///g, '.')
-      $("input.#{sanitized}").each (index, input) ->
+      $(".team-score.#{sanitized}").each (index, input) ->
         $input = $(input)
-        rival = $input.closest('.row').find("input:not(.#{team})")
-        if $input.val() != '' && rival.val() != ''
-          result = $input.val() - rival.val()
+        rival = $input.closest('.row').find(".team-score:not(.#{team})")
+        if $input.text() != '' && rival.text() != ''
+          result = $input.text() - rival.text()
           team_data['dif'] += result
           if result > 0
             team_data['pts'] += 3

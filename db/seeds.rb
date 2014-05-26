@@ -13,7 +13,7 @@ australia = Team.create(name: 'Australia', coach: 'Ange Postecoglou', group: 'B'
 
 colombia = Team.create(name: 'Colombia', coach: 'Jose Pekerman', group: 'C')
 grecia = Team.create(name: 'Grecia', coach: 'Fernando Santos', group: 'C')
-marfil = Team.create(name: 'Costa de Marfil', coach: 'Sabri Lamouchi', group: 'C')
+marfil = Team.create(name: 'C de Marfil', coach: 'Sabri Lamouchi', group: 'C')
 japon = Team.create(name: 'Japon', coach: 'Alberto Zaccheroni', group: 'C')
 
 uruguay = Team.create(name: 'Uruguay', coach: 'Oscar Washington Tabarez', group: 'D')
@@ -27,7 +27,7 @@ francia = Team.create(name: 'Francia', coach: 'Didier Deschamps', group: 'E')
 honduras = Team.create(name: 'Honduras', coach: 'Luis Fernando Suarez', group: 'E')
 
 argentina = Team.create(name: 'Argentina', coach: 'Alejandro Sabella', group: 'F')
-bosnia = Team.create(name: 'Bosnia y Herzegovina', coach: 'Safet Susic', group: 'F')
+bosnia = Team.create(name: 'Bosnia', coach: 'Safet Susic', group: 'F')
 iran = Team.create(name: 'Iran', coach: 'Carlos Queiroz', group: 'F')
 nigeria = Team.create(name: 'Nigeria', coach: 'Stephen Keshi', group: 'F')
 
@@ -39,7 +39,7 @@ usa = Team.create(name: 'Estados Unidos', coach: 'Jurgen Klinsmann', group: 'G')
 belgica = Team.create(name: 'Belgica', coach: 'Marc Wilmots', group: 'H')
 argelia = Team.create(name: 'Argelia', coach: 'Vahid Halilhodzic', group: 'H')
 rusia = Team.create(name: 'Rusia', coach: 'Fabio Capello', group: 'H')
-corea = Team.create(name: 'Corea del Sur', coach: 'Hong Myung-bo', group: 'H')
+corea = Team.create(name: 'Corea del S', coach: 'Hong Myung-bo', group: 'H')
 
 Arena.delete_all
 Arena.create(name: 'Arena Mineirao', city: 'Belo Horizonte', capacity: 69950)
