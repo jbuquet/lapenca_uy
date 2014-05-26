@@ -1,5 +1,5 @@
 LapencaUy::Application.routes.draw do
-  devise_for :members
+  devise_for :members, :controllers => {:registrations => 'registrations'}
 
   resources :teams, only: [:index, :show]
   resources :arenas, only: [:index, :show]

@@ -1,4 +1,12 @@
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+= form_for([@member], url: registration_path(@member)) do |f|
+  %div
+    = label_tag :member_group_name, 'Group name'
+    %br
+    = text_field_tag :member_group_name
+  %div
+    = label_tag :member_group_token, 'Group token'
+    %br
+    = password_field_tag :member_group_token
   %div
     = f.label :email
     %br

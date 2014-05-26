@@ -4,6 +4,6 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :forecasts
-  has_one  :member_group
+  has_many   :forecasts
+  belongs_to :member_group
 end
