@@ -3,8 +3,12 @@
     .small-4.columns.team.left-team
       = match_forecast.team1.try :name
     .small-2.columns.team-score
-      = text_field_tag "forecast[#{match_forecast.id}][team1_score]", match_forecast.forecasts.first.try(:team1_score), class: [match_forecast.team1.try(:name).try(:downcase)]
+      = text_field_tag "forecast[#{match_forecast.id}][team1_score]",
+      match_forecast.forecasts.first.try(:team1_score),
+      class: match_forecast.team1.try(:name).try(:downcase)
     .small-2.columns.team-score
-      = text_field_tag "forecast[#{match_forecast.id}][team2_score]", match_forecast.forecasts.first.try(:team2_score), class: match_forecast.team2.try(:name).try(:downcase)
+      = text_field_tag "forecast[#{match_forecast.id}][team2_score]",
+      match_forecast.forecasts.first.try(:team2_score),
+      class: match_forecast.team2.try(:name).try(:downcase)
     .small-4.columns.team.right-team
       = match_forecast.team2.try :name

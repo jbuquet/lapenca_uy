@@ -1,19 +1,11 @@
 LapencaUy::Application.routes.draw do
   devise_for :members, :controllers => {:registrations => 'registrations'}
 
-  resources :teams, only: [:index, :show]
-  resources :arenas, only: [:index, :show]
-  resources :matches, only: [:index, :show, :update]
+  resources :teams, only: [:index, :show], path: 'equipos'
+  resources :arenas, only: [:index, :show], path: 'estadios'
+  resources :matches, only: [:index, :update], path: 'resultados'
 
-  resources :forecasts do
-    collection do
-      get :forecast
-      post :forecast, action: :save_forecast
-    end
-  end
+  resources :forecasts, only: [:index, :create], path: 'pronostico'
 
-  get 'static_pages/home'
-  match '/home', to: 'static_pages#home', via: 'get'
-
-  root 'static_pages#home'
+  root 'standings#show'
 end
