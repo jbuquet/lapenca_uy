@@ -13,13 +13,15 @@ window.forecast = () ->
     $.each teams, (index, team) ->
       team_data = {team: team, pts: 0, dif: 0}
       sanitized = team.replace(///\ ///g, '.')
-      $("input.#{sanitized}").each (index, input) ->
-        $input = $(input)
-        rival = $input.closest('.row').find("input:not(.#{team})")
-        if $input.val() != '' && rival.val() != ''
-          result = $input.val() - rival.val()
+      $("input.#{sanitized}").each (index, score) ->
+        $score = $(score)
+        rival = $score.closest('.row').find("input:not(.#{sanitized})")
+        if $score.val() != '' && rival.val() != ''
+          result = $score.val() - rival.val()
           team_data['dif'] += result
+          $score.parent().removeClass('winner')
           if result > 0
+            $score.parent().addClass('winner')
             team_data['pts'] += 3
           else if result == 0
             team_data['pts'] += 1

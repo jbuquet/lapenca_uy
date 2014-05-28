@@ -13,13 +13,15 @@ window.fixture = () ->
     $.each teams, (index, team) ->
       team_data = {team: team, pts: 0, dif: 0}
       sanitized = team.replace(///\ ///g, '.')
-      $(".team-score.#{sanitized}").each (index, input) ->
-        $input = $(input)
-        rival = $input.closest('.row').find(".team-score:not(.#{team})")
-        if $input.text() != '' && rival.text() != ''
-          result = $input.text() - rival.text()
+      $(".team-score.#{sanitized}").each (index, score) ->
+        $score = $(score)
+        rival = $score.closest('.row').find(".team-score:not(.#{sanitized})")
+        if $score.text() != '' && rival.text() != ''
+          result = $score.text() - rival.text()
           team_data['dif'] += result
+          $score.removeClass('winner')
           if result > 0
+            $score.addClass('winner')
             team_data['pts'] += 3
           else if result == 0
             team_data['pts'] += 1

@@ -12,7 +12,6 @@ class ForecastsController < ApplicationController
   def create
     params.require(:forecast).each do |match_id, attrs|
       user_forecast = Forecast.find_or_create_by(member_id: current_member.id, match_id: match_id)
-      puts user_forecast['team1_score']
       user_forecast.update_attributes(attrs)
     end
     redirect_to forecasts_path

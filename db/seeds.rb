@@ -34,7 +34,7 @@ nigeria = Team.create(name: 'Nigeria', coach: 'Stephen Keshi', group: 'F')
 alemania = Team.create(name: 'Alemania', coach: 'Joachim Low', group: 'G')
 portugal = Team.create(name: 'Portugal', coach: 'Paulo Bento', group: 'G')
 ghana = Team.create(name: 'Ghana', coach: 'James Kwesi Appiah', group: 'G')
-usa = Team.create(name: 'Estados Unidos', coach: 'Jurgen Klinsmann', group: 'G')
+usa = Team.create(name: 'USA', coach: 'Jurgen Klinsmann', group: 'G')
 
 belgica = Team.create(name: 'Belgica', coach: 'Marc Wilmots', group: 'H')
 argelia = Team.create(name: 'Argelia', coach: 'Vahid Halilhodzic', group: 'H')

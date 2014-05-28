@@ -3,7 +3,11 @@ LapencaUy::Application.routes.draw do
 
   resources :teams, only: [:index, :show], path: 'equipos'
   resources :arenas, only: [:index, :show], path: 'estadios'
-  resources :matches, only: [:index, :update], path: 'resultados'
+  resources :matches, only: [:index, :show], path: 'resultados' do
+    collection do
+      resources :results, only: [:index, :create], path: 'actualizar'
+    end
+  end
 
   resources :forecasts, only: [:index, :create], path: 'pronostico'
 
