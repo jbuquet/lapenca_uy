@@ -159,6 +159,72 @@
     }
   }
 
+  .playoffs {
+    background-color: rgba(0, 0, 0, 0.8);
+
+    color: #FFFFFF;
+
+    position: fixed;
+    right: 3%;
+    height: -webkit-calc(95% - 45px);
+    height: -moz-calc(95% - 45px);
+    height: calc(95% - 45px);
+
+    top: -webkit-calc(2.5% + 45px);
+    top: -moz-calc(2.5% + 45px);
+    top: calc(2.5% + 45px);
+
+    width: 30%;
+
+    .stage {
+      width: 14.286%;
+      height: 100%;
+
+      .row {
+        position: relative;
+
+        &.eight {
+          height: 12.5%;
+        }
+        &.four {
+          height: 25%;
+        }
+        &.two {
+          height: 50%;
+        }
+
+        &.one {
+          height: 100%;
+        }
+
+        .match {
+          height: 68px;
+          width: 36px;
+          position: absolute;
+
+          top: -webkit-calc(50% - 34px);
+          top: -moz-calc(50% - 34px);
+          top: calc(50% - 34px);
+
+          left: -webkit-calc(50% - 18px);
+          left: -moz-calc(50% - 18px);
+          left: calc(50% - 18px);
+
+          .team {
+            height: 28px;
+            width: 28px;
+            border: 1px solid #FFFFFF;
+            margin: 4px;
+          }
+        }
+      }
+    }
+  }
+
+  .auto-height {
+    height: 100%;
+  }
+
   .save-forecast-btn {
     width: 400px;
   }

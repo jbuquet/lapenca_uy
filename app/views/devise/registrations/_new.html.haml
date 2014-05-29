@@ -1,4 +1,4 @@
-= form_for(@member, url: registration_path(@member)) do |f|
+= form_for(@member, url: registration_path(@member), remote: true) do |f|
   %div
     = f.label :email
     %br

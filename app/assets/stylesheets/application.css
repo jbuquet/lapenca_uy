@@ -21,3 +21,7 @@
 .alert-box {
     margin: 0 !important;
 }
+
+.row {
+    max-width: 10000px !important;
+}

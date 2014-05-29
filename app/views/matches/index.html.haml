@@ -1,31 +1,142 @@
 .forecasts-container
-  .groups
-    - @matches.each do |group, matches|
-      .group-panel
-        .title
-          Grupo #{group}
-        .matches
-          .content{id: "panel#{group}"}
-            .row
-              .small-7.columns
-                = render partial: 'match', collection: matches, as: :match
-              .small-5.columns
-                - teams = Team.where(group: group)
-                .positions
-                  %table{data: {teams: teams.map { |t| t.name.downcase }}}
-                    %tr.header
-                      %th.team Equipo
-                      %th pts
-                      %th dif
-                    - teams.each do |team|
-                      %tr
-                        %td.team= team.name
-                        %td.pts
-                        %td.dif
+  .row
+    .small-8.columns.groups
+      - @matches.each do |group, matches|
+        .group-panel
+          .title
+            Grupo #{group}
+          .matches
+            .content{id: "panel#{group}"}
+              .row
+                .small-7.columns
+                  = render partial: 'match', collection: matches, as: :match
+                .small-5.columns
+                  - teams = Team.where(group: group)
+                  .positions
+                    %table{data: {teams: teams.map { |t| t.name.downcase }}}
+                      %tr.header
+                        %th.team Equipo
+                        %th pts
+                        %th dif
+                      - teams.each do |team|
+                        %tr
+                          %td.team= team.name
+                          %td.pts
+                          %td.dif
 
-    - if current_member and current_member.is_admin
-      %br
-      = link_to 'Ir a Actualizar Resultados', results_path, class: ['button', 'save-forecast-btn']
+      - if current_member and current_member.is_admin
+        %br
+        = link_to 'Ir a Actualizar Resultados', results_path, class: ['button', 'save-forecast-btn']
+
+    .small-4.columns.playoffs
+      .row.auto-height
+        -# OCTAVOS A
+        .columns.stage
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+
+        -# CUARTOS A
+        .columns.stage
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+
+        -# SEMIS A
+        .columns.stage
+          .row.two
+            .match
+              = render partial: 'playoff_match'
+          .row.two
+            .match
+              = render partial: 'playoff_match'
+
+        -# FINAL
+        .columns.stage
+          .row.one
+            .match
+              = render partial: 'playoff_match'
+
+        -# SEMIS B
+        .columns.stage
+          .row.two
+            .match
+              = render partial: 'playoff_match'
+          .row.two
+            .match
+              = render partial: 'playoff_match'
+
+        -# CUARTOS B
+        .columns.stage
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+          .row.four
+            .match
+              = render partial: 'playoff_match'
+
+        -# OCTAVOS B
+        .columns.stage
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
+          .row.eight
+            .match
+              = render partial: 'playoff_match'
 
 :javascript
   fixture()
