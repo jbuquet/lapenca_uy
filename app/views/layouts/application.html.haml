@@ -12,4 +12,8 @@
       .alert-box.success= notice
     - if alert
       .alert-box.alert= alert
-    = yield
+    - if current_member
+      .page-container
+        = yield
+    - else
+      = yield

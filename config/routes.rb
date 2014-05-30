@@ -11,5 +11,8 @@ LapencaUy::Application.routes.draw do
 
   resources :forecasts, only: [:index, :create], path: 'pronostico'
 
+  resources :member_groups, only: [:create], path: 'grupo'
+  resources :member_subscriptions, only: [:create], path: 'suscripcion'
+
   root 'standings#show'
 end

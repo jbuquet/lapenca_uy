@@ -22,8 +22,8 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
-      clean_up_passwords resource
-      respond_with resource
+      flash[:alert] = 'Los datos no son correctos'
+      redirect_to root_path
     end
   end
 

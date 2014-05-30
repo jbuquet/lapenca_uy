@@ -3,8 +3,7 @@
     .small-8.columns.groups
       - @matches.each do |group, matches|
         .group-panel
-          .title
-            Grupo #{group}
+          .title="Grupo #{group}"
           .matches
             .content{id: "panel#{group}"}
               .row
@@ -32,111 +31,84 @@
       .row.auto-height
         -# OCTAVOS A
         .columns.stage
-          .row.eight
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-A.row.team
+              #two-B.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-C.row.team
+              #two-D.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-E.row.team
+              #two-F.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
+              #one-G.row.team
+              #two-H.row.team
 
         -# CUARTOS A
         .columns.stage
-          .row.four
+          .row.two
             .match
-              = render partial: 'playoff_match'
-          .row.four
+              .row.team
+              .row.team
+          .row.two
             .match
-              = render partial: 'playoff_match'
-          .row.four
-            .match
-              = render partial: 'playoff_match'
-          .row.four
-            .match
-              = render partial: 'playoff_match'
+              .row.team
+              .row.team
 
         -# SEMIS A
         .columns.stage
-          .row.two
+          .row.one
             .match
-              = render partial: 'playoff_match'
-          .row.two
-            .match
-              = render partial: 'playoff_match'
+              .row.team
+              .row.team
 
         -# FINAL
         .columns.stage
           .row.one
             .match
-              = render partial: 'playoff_match'
+              .row.team
+              .row.team
 
         -# SEMIS B
         .columns.stage
-          .row.two
+          .row.one
             .match
-              = render partial: 'playoff_match'
-          .row.two
-            .match
-              = render partial: 'playoff_match'
+              .row.team
+              .row.team
 
         -# CUARTOS B
         .columns.stage
-          .row.four
+          .row.two
             .match
-              = render partial: 'playoff_match'
-          .row.four
+              .row.team
+              .row.team
+          .row.two
             .match
-              = render partial: 'playoff_match'
-          .row.four
-            .match
-              = render partial: 'playoff_match'
-          .row.four
-            .match
-              = render partial: 'playoff_match'
+              .row.team
+              .row.team
 
         -# OCTAVOS B
         .columns.stage
-          .row.eight
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-B.row.team
+              #two-A.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-D.row.team
+              #two-C.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
+              #one-F.row.team
+              #two-E.row.team
+          .row.four
             .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
-          .row.eight
-            .match
-              = render partial: 'playoff_match'
+              #one-H.row.team
+              #two-G.row.team
 
 :javascript
   fixture()

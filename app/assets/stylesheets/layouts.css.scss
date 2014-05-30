@@ -3,4 +3,21 @@ body {
   height: 100%;
 
   font-family: 'Open Sans';
+
+  .page-container {
+    min-height: 100%;
+
+    background: image-url('grass-background.jpg') repeat;
+    background-attachment: fixed;
+
+    text-align: center;
+  }
+
+  .alert-box {
+    margin: 0 !important;
+  }
+
+  .row {
+    max-width: 10000px !important;
+  }
 }

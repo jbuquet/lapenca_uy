@@ -1,15 +1,27 @@
-.standings
-  - if @standings != {}
+.forecasts-container
+  .row
     - @standings.each_pair do |group, participants|
-      = group
-      %table
-        %tr.header
-          %th Email
-          %th Puntos
-        - participants.each do |user|
-          %tr
-            %td= user.email
-            %td= user.points
+      .group-standings-panel
+        .title
+          = group
+        %table
+          %tr.header
+            %th.name Email
+            %th Puntos
+          - participants.each do |user|
+            %tr
+              %td.name= user.email
+              %td= user.points
 
-  - else
-    Suscribase a un grupo
+  .row
+    %a{:href => '#', 'data-reveal-id' => 'subscibeToGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
+      Suscribirme a un grupo
+
+    %a{:href => '#', 'data-reveal-id' => 'createAGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
+      Crear un grupo
+
+#subscibeToGroupModal.reveal-modal.tiny{'data-reveal' => true}
+  = render 'groups/subscribe'
+
+#createAGroupModal.reveal-modal.tiny{'data-reveal' => true}
+  = render 'groups/new'

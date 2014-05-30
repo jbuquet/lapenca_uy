@@ -10,7 +10,8 @@ window.forecast = () ->
     teams = $group.find('table').data().teams
     table = []
 
-    $.each teams, (index, team) ->
+    $.each teams, (index, team) =>
+      @group_name = $group.find('.title').text().split(' ').pop()
       team_data = {team: team, pts: 0, dif: 0}
       sanitized = team.replace(///\ ///g, '.')
       $("input.#{sanitized}").each (index, score) ->
@@ -34,14 +35,26 @@ window.forecast = () ->
       else
         diff
 
-    $.each table, (index, team) ->
+    $.each table, (index, team) =>
       tr = $group.find('table tr')[index+1]
       tds = $(tr).find('td')
       team_html = team.team.titleize()
       if index < 2
         team_html = $('<strong></strong>').text team.team.titleize()
+        addToPlayoffs(team, index + 1, @group_name)
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
       $(tds[2]).text(team.dif)
 
+addToPlayoffs = (team, index, group) ->
+  position = 'one' if index == 1
+  position = 'two' if index == 2
+
+  id = position + '-' + group
+  teamDiv = $('.playoffs').find('.team#'+id)
+
+  $(teamDiv).removeClass()
+  $(teamDiv).addClass('row')
+  $(teamDiv).addClass('team')
+  $(teamDiv).addClass(team.team.replace(///\ ///g, '').replace('ñ', 'n'))

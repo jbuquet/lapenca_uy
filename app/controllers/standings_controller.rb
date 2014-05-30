@@ -1,6 +1,7 @@
 class StandingsController < ApplicationController
   def show
     if current_member
+      @group = MemberGroup.new
       @standings = {}
 
       groups = current_member.member_groups.all
