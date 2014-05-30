@@ -14,6 +14,8 @@ class ForecastsController < ApplicationController
       user_forecast = Forecast.find_or_create_by(member_id: current_member.id, match_id: match_id)
       user_forecast.update_attributes(attrs)
     end
+
+    flash[:notice] = 'Pronostico actualizado correctamente'
     redirect_to forecasts_path
   end
 

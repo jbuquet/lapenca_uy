@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140528033532) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "member_group_id"
     t.integer  "points"
     t.boolean  "is_admin",               default: false
   end
