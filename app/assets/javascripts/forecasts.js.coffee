@@ -21,9 +21,7 @@ window.forecast = () ->
           result = $score.val() - rival.val()
           team_data['gf'] += parseInt($score.val())
           team_data['gc'] += parseInt(rival.val())
-          $score.parent().removeClass('winner')
           if result > 0
-            $score.parent().addClass('winner')
             team_data['pts'] += 3
           else if result == 0
             team_data['pts'] += 1
@@ -46,7 +44,7 @@ window.forecast = () ->
       team_html = team.team.titleize()
       if index < 2
         team_html = $('<strong></strong>').text team.team.titleize()
-#        addToPlayoffs(team, index + 1, @group_name)
+        addToPlayoffs(team, index + 1, @group_name)
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
