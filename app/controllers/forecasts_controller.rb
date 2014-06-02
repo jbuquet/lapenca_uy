@@ -4,7 +4,13 @@ class ForecastsController < ApplicationController
   # GET /forecasts
   # GET /forecasts.json
   def index
-    @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member.id}").group_by(&:group)
+    # Post.where(author: author)
+    # Author.joins(:posts).where(posts: { author: author })
+
+    # Forecast.where(member_id: current_member.id)
+    @matches = Match.joins(:forecasts).where(forecasts: {member: current_member}).group_by(&:group)
+
+    # @matches = Match.joins("LEFT OUTER JOIN forecasts ON forecasts.match_id = matches.id AND forecasts.member_id = #{current_member.id}").group_by(&:group)
   end
 
   # POST /forecasts

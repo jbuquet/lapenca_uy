@@ -1,6 +1,6 @@
 .forecasts-container
   .row
-    .small-8.columns.groups
+    .groups
       = form_tag '/resultados/actualizar' do
         - @matches.each do |group, matches|
           .group-panel
@@ -26,88 +26,88 @@
         %br
         = submit_tag 'Actualizar Resultados', class: ['button', 'save-forecast-btn']
 
-    .small-4.columns.playoffs
-      .row.auto-height
-        -# OCTAVOS A
-        .columns.stage
-          .row.four
-            .match
-              #one-A.row.team
-              #two-B.row.team
-          .row.four
-            .match
-              #one-C.row.team
-              #two-D.row.team
-          .row.four
-            .match
-              #one-E.row.team
-              #two-F.row.team
-          .row.four
-            .match
-              #one-G.row.team
-              #two-H.row.team
-
-        -# CUARTOS A
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
-
-        -# SEMIS A
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# FINAL
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# SEMIS B
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# CUARTOS B
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
-
-        -# OCTAVOS B
-        .columns.stage
-          .row.four
-            .match
-              #one-B.row.team
-              #two-A.row.team
-          .row.four
-            .match
-              #one-D.row.team
-              #two-C.row.team
-          .row.four
-            .match
-              #one-F.row.team
-              #two-E.row.team
-          .row.four
-            .match
-              #one-H.row.team
-              #two-G.row.team
-
+-#    .small-4.columns.playoffs
+-#      .row.auto-height
+-#        -# OCTAVOS A
+-#        .columns.stage
+-#          .row.four
+-#            .match
+-#              #one-A.row.team
+-#              #two-B.row.team
+-#          .row.four
+-#            .match
+-#              #one-C.row.team
+-#              #two-D.row.team
+-#          .row.four
+-#            .match
+-#              #one-E.row.team
+-#              #two-F.row.team
+-#          .row.four
+-#            .match
+-#              #one-G.row.team
+-#              #two-H.row.team
+-#
+-#        -# CUARTOS A
+-#        .columns.stage
+-#          .row.two
+-#            .match
+-#              .row.team
+-#              .row.team
+-#          .row.two
+-#            .match
+-#              .row.team
+-#              .row.team
+-#
+-#        -# SEMIS A
+-#        .columns.stage
+-#          .row.one
+-#            .match
+-#              .row.team
+-#              .row.team
+-#
+-#        -# FINAL
+-#        .columns.stage
+-#          .row.one
+-#            .match
+-#              .row.team
+-#              .row.team
+-#
+-#        -# SEMIS B
+-#        .columns.stage
+-#          .row.one
+-#            .match
+-#              .row.team
+-#              .row.team
+-#
+-#        -# CUARTOS B
+-#        .columns.stage
+-#          .row.two
+-#            .match
+-#              .row.team
+-#              .row.team
+-#          .row.two
+-#            .match
+-#              .row.team
+-#              .row.team
+-#
+-#        -# OCTAVOS B
+-#        .columns.stage
+-#          .row.four
+-#            .match
+-#              #one-B.row.team
+-#              #two-A.row.team
+-#          .row.four
+-#            .match
+-#              #one-D.row.team
+-#              #two-C.row.team
+-#          .row.four
+-#            .match
+-#              #one-F.row.team
+-#              #two-E.row.team
+-#          .row.four
+-#            .match
+-#              #one-H.row.team
+-#              #two-G.row.team
+-#
 :javascript
   forecast()

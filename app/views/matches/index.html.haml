@@ -1,114 +1,114 @@
 .forecasts-container
   .row
-    .small-8.columns.groups
-      - @matches.each do |group, matches|
-        .group-panel
-          .title="Grupo #{group}"
-          .matches
-            .content{id: "panel#{group}"}
-              .row
-                .small-7.columns
-                  = render partial: 'match', collection: matches, as: :match
-                .small-5.columns
-                  - teams = Team.where(group: group)
-                  .positions
-                    %table{data: {teams: teams.map { |t| t.name.downcase }}}
-                      %tr.header
-                        %th.team Equipo
-                        %th pts
-                        %th dif
-                      - teams.each do |team|
-                        %tr
-                          %td.team= team.name
-                          %td.pts
-                          %td.dif
+    .groups
+    - @matches.each do |group, matches|
+      .group-panel
+        .title="Grupo #{group}"
+        .matches
+          .content{id: "panel#{group}"}
+            .row
+              .small-7.columns
+                = render partial: 'match', collection: matches, as: :match
+              .small-5.columns
+                - teams = Team.where(group: group)
+                .positions
+                  %table{data: {teams: teams.map { |t| t.name.downcase }}}
+                    %tr.header
+                      %th.team Equipo
+                      %th pts
+                      %th dif
+                    - teams.each do |team|
+                      %tr
+                        %td.team= team.name
+                        %td.pts
+                        %td.dif
 
-      - if current_member and current_member.is_admin
-        %br
-        = link_to 'Ir a Actualizar Resultados', results_path, class: ['button', 'save-forecast-btn']
+    - if current_member and current_member.is_admin
+      %br
+      = link_to 'Ir a Actualizar Resultados', results_path, class: ['button', 'save-forecast-btn']
 
-    .small-4.columns.playoffs
-      .row.auto-height
-        -# OCTAVOS A
-        .columns.stage
-          .row.four
-            .match
-              #one-A.row.team
-              #two-B.row.team
-          .row.four
-            .match
-              #one-C.row.team
-              #two-D.row.team
-          .row.four
-            .match
-              #one-E.row.team
-              #two-F.row.team
-          .row.four
-            .match
-              #one-G.row.team
-              #two-H.row.team
-
-        -# CUARTOS A
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
-
-        -# SEMIS A
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# FINAL
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# SEMIS B
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
-
-        -# CUARTOS B
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
-
-        -# OCTAVOS B
-        .columns.stage
-          .row.four
-            .match
-              #one-B.row.team
-              #two-A.row.team
-          .row.four
-            .match
-              #one-D.row.team
-              #two-C.row.team
-          .row.four
-            .match
-              #one-F.row.team
-              #two-E.row.team
-          .row.four
-            .match
-              #one-H.row.team
-              #two-G.row.team
+    -#.small-4.columns.playoffs
+    -#  .row.auto-height
+    -#    -# OCTAVOS A
+    -#    .columns.stage
+    -#      .row.four
+    -#        .match
+    -#          #one-A.row.team
+    -#          #two-B.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-C.row.team
+    -#          #two-D.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-E.row.team
+    -#          #two-F.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-G.row.team
+    -#          #two-H.row.team
+    -#
+    -#    -# CUARTOS A
+    -#    .columns.stage
+    -#      .row.two
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#      .row.two
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#
+    -#    -# SEMIS A
+    -#    .columns.stage
+    -#      .row.one
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#
+    -#    -# FINAL
+    -#    .columns.stage
+    -#      .row.one
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#
+    -#    -# SEMIS B
+    -#    .columns.stage
+    -#      .row.one
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#
+    -#    -# CUARTOS B
+    -#    .columns.stage
+    -#      .row.two
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#      .row.two
+    -#        .match
+    -#          .row.team
+    -#          .row.team
+    -#
+    -#    -# OCTAVOS B
+    -#    .columns.stage
+    -#      .row.four
+    -#        .match
+    -#          #one-B.row.team
+    -#          #two-A.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-D.row.team
+    -#          #two-C.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-F.row.team
+    -#          #two-E.row.team
+    -#      .row.four
+    -#        .match
+    -#          #one-H.row.team
+    -#          #two-G.row.team
 
 :javascript
   fixture()
