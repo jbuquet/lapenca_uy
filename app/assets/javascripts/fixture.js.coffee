@@ -22,9 +22,7 @@ window.fixture = () ->
           team_data['gf'] += parseInt($score.text())
           team_data['gc'] += parseInt(rival.text())
           team_data['dif'] += result
-          $score.removeClass('winner')
           if result > 0
-            $score.addClass('winner')
             team_data['pts'] += 3
           else if result == 0
             team_data['pts'] += 1

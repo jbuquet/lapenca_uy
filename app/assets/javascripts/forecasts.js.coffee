@@ -21,9 +21,7 @@ window.forecast = () ->
           result = $score.val() - rival.val()
           team_data['gf'] += parseInt($score.val())
           team_data['gc'] += parseInt(rival.val())
-          $score.parent().removeClass('winner')
           if result > 0
-            $score.parent().addClass('winner')
             team_data['pts'] += 3
           else if result == 0
             team_data['pts'] += 1

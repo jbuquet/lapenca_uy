@@ -4,7 +4,7 @@ class ForecastsController < ApplicationController
   # GET /forecasts
   # GET /forecasts.json
   def index
-    @matches = Match.joins(:forecasts).where(forecasts: {member: current_member}).group_by(&:group).sort_by { |group, _| group }
+    @matches = Match.all.group_by(&:group).sort_by { |group, _| group }
   end
 
   # POST /forecasts
