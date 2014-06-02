@@ -12,13 +12,15 @@ window.fixture = () ->
 
     $.each teams, (index, team) =>
       @group_name = $group.find('.title').text().split(' ').pop()
-      team_data = {team: team, pts: 0, dif: 0}
+      team_data = {team: team, pts: 0, gf: 0, gc: 0}
       sanitized = team.replace(///\ ///g, '.')
       $(".team-score.#{sanitized}").each (index, score) ->
         $score = $(score)
         rival = $score.closest('.row').find(".team-score:not(.#{sanitized})")
         if $score.text() != '' && rival.text() != ''
           result = $score.text() - rival.text()
+          team_data['gf'] += parseInt($score.text())
+          team_data['gc'] += parseInt(rival.text())
           team_data['dif'] += result
           $score.removeClass('winner')
           if result > 0
@@ -31,7 +33,11 @@ window.fixture = () ->
     table = table.sort (team1, team2) ->
       diff = team2.pts - team1.pts
       if diff == 0
-        team2.dif - team1.dif
+        gdiff = (team2.gf - team2.gc) - (team1.gf - team1.gc)
+        if gdiff == 0
+          team2.gf - team1.gf
+        else
+          gdiff
       else
         diff
 
@@ -45,7 +51,8 @@ window.fixture = () ->
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
-      $(tds[2]).text(team.dif)
+      $(tds[2]).text(team.gf)
+      $(tds[3]).text(team.gc)
 
 addToPlayoffs = (team, index, group) ->
   position = 'one' if index == 1
@@ -54,7 +61,4 @@ addToPlayoffs = (team, index, group) ->
   id = position + '-' + group
   teamDiv = $('.playoffs').find('.team#'+id)
 
-  $(teamDiv).removeClass()
-  $(teamDiv).addClass('row')
-  $(teamDiv).addClass('team')
-  $(teamDiv).addClass(team.team.replace(///\ ///g, '').replace('ñ', 'n'))
+  $(teamDiv).find('.name').text(team.team.titleize())

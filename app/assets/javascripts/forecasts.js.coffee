@@ -12,14 +12,15 @@ window.forecast = () ->
 
     $.each teams, (index, team) =>
       @group_name = $group.find('.title').text().split(' ').pop()
-      team_data = {team: team, pts: 0, dif: 0}
+      team_data = {team: team, pts: 0, gf: 0, gc: 0}
       sanitized = team.replace(///\ ///g, '.')
       $("input.#{sanitized}").each (index, score) ->
         $score = $(score)
         rival = $score.closest('.row').find("input:not(.#{sanitized})")
         if $score.val() != '' && rival.val() != ''
           result = $score.val() - rival.val()
-          team_data['dif'] += result
+          team_data['gf'] += parseInt($score.val())
+          team_data['gc'] += parseInt(rival.val())
           $score.parent().removeClass('winner')
           if result > 0
             $score.parent().addClass('winner')
@@ -31,7 +32,11 @@ window.forecast = () ->
     table = table.sort (team1, team2) ->
       diff = team2.pts - team1.pts
       if diff == 0
-        team2.dif - team1.dif
+        gdiff = (team2.gf - team2.gc) - (team1.gf - team1.gc)
+        if gdiff == 0
+          team2.gf - team1.gf
+        else
+          gdiff
       else
         diff
 
@@ -45,7 +50,8 @@ window.forecast = () ->
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
-      $(tds[2]).text(team.dif)
+      $(tds[2]).text(team.gf)
+      $(tds[3]).text(team.gc)
 
 addToPlayoffs = (team, index, group) ->
   position = 'one' if index == 1
@@ -54,7 +60,4 @@ addToPlayoffs = (team, index, group) ->
   id = position + '-' + group
   teamDiv = $('.playoffs').find('.team#'+id)
 
-  $(teamDiv).removeClass()
-  $(teamDiv).addClass('row')
-  $(teamDiv).addClass('team')
-  $(teamDiv).addClass(team.team.replace(///\ ///g, '').replace('ñ', 'n'))
+  $(teamDiv).find('.name').text(team.team.titleize())

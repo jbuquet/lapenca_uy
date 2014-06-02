@@ -26,9 +26,9 @@
   }
 
   .group-panel {
-    width: 480px;
+    width: 430px;
     background-color: rgba(0, 0, 0, 0.8);
-    margin: 20px 15px;
+    margin: 15px 15px;
     display: inline-block;
     color: #FFFFFF;
     padding: 10px;
@@ -107,10 +107,10 @@
         background-color: transparent;
         border: 1px solid #FFFFFF;
         table-layout: fixed;
-        width: 160px;
+        width: 155px;
 
         tr {
-          width: 160px;
+          width: 155px;
           height: 30px;
           white-space: nowrap;
 
@@ -119,9 +119,10 @@
           background-color: transparent !important;
 
           th {
-            width: 40px;
+            width: 25px;
             color: #FFFFFF;
             border-bottom: 1px solid #FFFFFF;
+            font-size: 10px;
 
             &.team {
               width: 80px;
@@ -130,7 +131,7 @@
           }
 
           td {
-            width: 40px;
+            width: 25px;
             color: #FFFFFF;
             overflow: hidden;
             font-size: 12px;
@@ -158,230 +159,107 @@
 
     color: #FFFFFF;
 
-    position: fixed;
-    right: 3%;
-    height: -webkit-calc(95% - 45px);
-    height: -moz-calc(95% - 45px);
-    height: calc(95% - 45px);
+    width: 890px;
+    height: 400px;
 
-    top: -webkit-calc(2.5% + 45px);
-    top: -moz-calc(2.5% + 45px);
-    top: calc(2.5% + 45px);
-
-    width: 30%;
+    margin: 20px auto;
 
     .stage {
       width: 14.286%;
-      height: 100%;
+      height: 400px;
 
-      .row {
-        position: relative;
-
-        &.eight {
-          height: 12.5%;
-        }
-        &.four {
-          height: 25%;
-        }
-        &.two {
-          height: 50%;
-        }
-
-        &.one {
-          height: 100%;
-        }
+      .four {
+        height: 100px;
+        margin: 0px;
 
         .match {
-          height: 68px;
-          width: 36px;
-          position: absolute;
+          padding-top: 14px;
+        }
+      }
+      .two {
+        height: 200px;
+        margin: 0px;
 
-          top: -webkit-calc(50% - 34px);
-          top: -moz-calc(50% - 34px);
-          top: calc(50% - 34px);
+        .match {
+          padding-top: 64px;
+        }
+      }
 
-          left: -webkit-calc(50% - 18px);
-          left: -moz-calc(50% - 18px);
-          left: calc(50% - 18px);
+      .one {
+        height: 400px;
+        margin: 0px;
 
-          .team {
+        .match {
+          padding-top: 164px;
+        }
+      }
+
+      .match {
+        height: 72px;
+
+        .team {
+          width: 100%;
+
+          .name {
+            height: 32px;
+            width: 60px;
+            margin: 2px;
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 32px;
+          }
+
+          .score {
             height: 28px;
             width: 28px;
             border: 1px solid #FFFFFF;
             margin: 4px;
             overflow: hidden;
 
-            &.brasil{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: 0 0;
-            }
-            &.croacia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -112px -56px;
-            }
-            &.mexico{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -196px 0;
-            }
-            &.camerun{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -84px -84px;
-            }
+            text-align: center;
+            line-height: 27px;
 
-            &.espana{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -56px -28px;
-            }
-            &.holanda{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -168px -28px;
-            }
-            &.chile{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -112px 0;
-            }
-            &.australia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -196px -84px;
-            }
+            color: darkred;
+          }
+        }
+      }
 
-            &.colombia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -56px 0;
-            }
-            &.grecia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -56px -56px;
-            }
-            &.cdemarfil{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -196px -56px;
-            }
-            &.japon{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -112px -84px;
-            }
+      &.left-side {
+        .team {
+          .name {
+            text-align: left;
+            float: left;
+          }
 
-            &.uruguay{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -84px 0;
-            }
-            &.costarica{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: 0 -28px;
-            }
-            &.inglaterra{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: 0 -56px;
-            }
-            &.italia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -196px -28px;
-            }
+          .score {
+            float: left;
+          }
+        }
+      }
 
-            &.suiza{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -140px -28px;
-            }
-            &.ecuador{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -140px 0;
-            }
-            &.francia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -168px -56px;
-            }
-            &.honduras{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -28px -28px;
-            }
+      &.right-side {
+        .team {
+          .name {
+            text-align: right;
+            float: right;
+          }
 
-            &.argentina{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -28px 0;
-            }
-            &.bosnia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -84px -56px;
-            }
-            &.iran{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -140px -84px;
-            }
-            &.nigeria{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -56px -84px;
-            }
+          .score {
+            float: right;
+          }
+        }
+      }
 
-            &.alemania{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -84px -28px;
-            }
-            &.portugal{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -28px -56px;
-            }
-            &.ghana{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: 0 -84px;
-            }
-            &.estadosunidos{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -168px 0;
-            }
-
-            &.belgica{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -112px -28px;
-            }
-            &.argelia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -28px -84px;
-            }
-            &.rusia{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -140px -56px;
-            }
-            &.coreadels{
-              border: none;
-              background-image: image_url('escudos.png');
-              background-position: -168px -84px;
-            }
+      &.center-side {
+        .team {
+          .score {
+            float: left;
+            margin-left: 41.5px;
           }
         }
       }
     }
+
   }
 }
 

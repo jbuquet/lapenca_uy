@@ -12,6 +12,11 @@ class RegistrationsController < Devise::RegistrationsController
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
+      matches = Match.all
+      matches.each { |match|
+        Forecast.find_or_create_by(member_id: resource.id, match_id: match.id)
+      }
+
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)

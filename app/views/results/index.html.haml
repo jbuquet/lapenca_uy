@@ -1,7 +1,9 @@
 .forecasts-container
   .row
-    .small-8.columns.groups
-      = form_tag '/resultados/actualizar' do
+    = form_tag '/resultados/actualizar' do
+      = submit_tag 'Actualizar Resultados', class: ['button', 'save-forecast-btn']
+      %br
+      .groups
         - @matches.each do |group, matches|
           .group-panel
             .title="Grupo #{group}"
@@ -17,97 +19,185 @@
                         %tr.header
                           %th.team Equipo
                           %th pts
-                          %th dif
+                          %th gf
+                          %th gc
                         - teams.each do |team|
                           %tr
                             %td.team= team.name
                             %td.pts
-                            %td.dif
-        %br
-        = submit_tag 'Actualizar Resultados', class: ['button', 'save-forecast-btn']
+                            %td.gf
+                            %td.gc
 
-    .small-4.columns.playoffs
-      .row.auto-height
-        -# OCTAVOS A
-        .columns.stage
-          .row.four
-            .match
-              #one-A.row.team
-              #two-B.row.team
-          .row.four
-            .match
-              #one-C.row.team
-              #two-D.row.team
-          .row.four
-            .match
-              #one-E.row.team
-              #two-F.row.team
-          .row.four
-            .match
-              #one-G.row.team
-              #two-H.row.team
+  .row
+    .playoffs
+      -# OCTAVOS A
+      .columns.stage.left-side
+        .four
+          .match
+            #one-A.team
+              .name
+              .score
+                X
+            #two-B.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-C.team
+              .name
+              .score
+                X
+            #two-D.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-E.team
+              .name
+              .score
+                X
+            #two-F.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-G.team
+              .name
+              .score
+                X
+            #two-H.team
+              .name
+              .score
+                X
 
-        -# CUARTOS A
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
+      -# CUARTOS A
+      .columns.stage.left-side
+        .two
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
+        .two
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
 
-        -# SEMIS A
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
+      -# SEMIS A
+      .columns.stage.left-side
+        .one
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
 
-        -# FINAL
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
+      -# FINAL
+      .columns.stage.center-side
+        .one
+          .match
+            .team
+              .score
+                X
+            .team
+              .score
+                X
 
-        -# SEMIS B
-        .columns.stage
-          .row.one
-            .match
-              .row.team
-              .row.team
+      -# SEMIS B
+      .columns.stage.right-side
+        .one
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
 
-        -# CUARTOS B
-        .columns.stage
-          .row.two
-            .match
-              .row.team
-              .row.team
-          .row.two
-            .match
-              .row.team
-              .row.team
+      -# CUARTOS B
+      .columns.stage.right-side
+        .two
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
+        .two
+          .match
+            .team
+              .name
+              .score
+                X
+            .team
+              .name
+              .score
+                X
 
-        -# OCTAVOS B
-        .columns.stage
-          .row.four
-            .match
-              #one-B.row.team
-              #two-A.row.team
-          .row.four
-            .match
-              #one-D.row.team
-              #two-C.row.team
-          .row.four
-            .match
-              #one-F.row.team
-              #two-E.row.team
-          .row.four
-            .match
-              #one-H.row.team
-              #two-G.row.team
+      -# OCTAVOS B
+      .columns.stage.right-side
+        .four
+          .match
+            #one-B.team
+              .name
+              .score
+                X
+            #two-A.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-D.team
+              .name
+              .score
+                X
+            #two-C.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-F.team
+              .name
+              .score
+                X
+            #two-E.team
+              .name
+              .score
+                X
+        .four
+          .match
+            #one-H.team
+              .name
+              .score
+                X
+            #two-G.team
+              .name
+              .score
+                X
 
 :javascript
   forecast()

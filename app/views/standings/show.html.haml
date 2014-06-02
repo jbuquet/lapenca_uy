@@ -16,9 +16,9 @@
   .row
     %a{:href => '#', 'data-reveal-id' => 'subscibeToGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
       Suscribirme a un grupo
-
-    %a{:href => '#', 'data-reveal-id' => 'createAGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
-      Crear un grupo
+    - if current_member and current_member.is_admin
+      %a{:href => '#', 'data-reveal-id' => 'createAGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
+        Crear un grupo
 
 #subscibeToGroupModal.reveal-modal.tiny{'data-reveal' => true}
   = render 'groups/subscribe'
