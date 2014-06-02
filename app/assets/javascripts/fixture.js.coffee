@@ -47,7 +47,7 @@ window.fixture = () ->
       team_html = team.team.titleize()
       if index < 2
         team_html = $('<strong></strong>').text team.team.titleize()
-        addToPlayoffs(team, index + 1, @group_name)
+#        addToPlayoffs(team, index + 1, @group_name)
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
