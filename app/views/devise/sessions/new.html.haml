@@ -15,6 +15,8 @@
         .login-input-line
           = f.label :password, class: 'login-label'
           = f.password_field :password, autocomplete: 'off', class: 'login-field'
+        .password-hint
+          * Al menos 8 caracteres
 
         = f.submit 'OK', class: 'button'
 

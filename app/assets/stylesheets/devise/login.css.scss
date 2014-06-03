@@ -10,7 +10,7 @@
 
   .login {
     width: 320px;
-    height: 215px;
+    height: 225px;
 
     background-color: rgba(0, 0, 0, 0.8);
 
@@ -72,6 +72,16 @@
             box-shadow: none;
           }
         }
+      }
+
+      .password-hint {
+        color: #FFF;
+        font-style: italic;
+        float: right;
+        margin-right: 20px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        font-size: 12px;
       }
 
       .button {

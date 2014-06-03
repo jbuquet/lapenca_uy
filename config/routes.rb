@@ -14,5 +14,7 @@ LapencaUy::Application.routes.draw do
   resources :member_groups, only: [:create], path: 'grupo'
   resources :member_subscriptions, only: [:create], path: 'suscripcion'
 
+  get 'reglas', to: 'static_pages#rules'
+
   root 'standings#show'
 end
