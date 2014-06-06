@@ -2,12 +2,6 @@ class Forecast < ActiveRecord::Base
   belongs_to :member
   belongs_to :match
 
-    t.integer  "team1_score"
-    t.integer  "team2_score"
-
-    t.integer  "team1_score"
-    t.integer  "team2_score"
-
   def self.update_user_points(match)
     match.forecasts.each do |forecast|
       points = 0
