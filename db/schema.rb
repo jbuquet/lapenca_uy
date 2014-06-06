@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528033532) do
+ActiveRecord::Schema.define(version: 20140605234303) do
 
   create_table "arenas", force: true do |t|
     t.string   "name"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140528033532) do
     t.integer  "member_group_id"
     t.integer  "points"
     t.boolean  "is_admin",               default: false
+    t.string   "name"
   end
 
   add_index "members", ["email"], name: "index_members_on_email", unique: true

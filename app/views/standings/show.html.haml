@@ -6,11 +6,12 @@
           = group
         %table
           %tr.header
-            %th.name Email
+            %th.name Participante
             %th Puntos
           - participants.each do |user|
             %tr
-              %td.name= user.email
+              %td.name
+                = user.name.present? ? user.name : user.email
               %td= user.points
 
   .row
