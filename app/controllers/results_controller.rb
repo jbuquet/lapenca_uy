@@ -12,8 +12,11 @@ class ResultsController < ApplicationController
   def create
     params.require(:result).each do |match_id, attrs|
       match = Match.find(match_id)
-      match.update_attributes(attrs)
-      Forecast.update_user_points(match)
+      match.attributes = attrs
+      if match.changed?
+        match.save
+        Forecast.update_user_points(match)
+      end
     end
 
     flash[:notice] = 'Resultados actualizados correctamente'
