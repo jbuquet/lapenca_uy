@@ -20,4 +20,20 @@ class Match < ActiveRecord::Base
     raise 'Match score not entered' unless team1_score && team2_score
     team1_score == team2_score
   end
+
+  def result_sym
+    if draw?
+      :draw
+    else
+      if team1_score > team2_score
+        :team1
+      else
+        :team2
+      end
+    end
+  end
+
+  def description
+    "#{team1.try :name} #{team1_score || '*'} - #{team2_score || '*'} #{team2.try :name}"
+  end
 end
