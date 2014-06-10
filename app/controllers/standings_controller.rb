@@ -6,7 +6,9 @@ class StandingsController < ApplicationController
 
       groups = current_member.member_groups.all
       groups.each do |group|
-        @standings[group.group_name] = group.members.all.sort_by { |member| member.points }.reverse
+        @standings[group.group_name] = group.members.all.sort_by {
+          |member| (member.points.present? ? member.points : 0)
+        }.reverse
       end
 
       @standings
