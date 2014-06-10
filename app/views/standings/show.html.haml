@@ -12,7 +12,7 @@
             %tr
               %td.name
                 = user.name.present? ? user.name : user.email
-              %td= user.points
+              %td= user.points || 0
 
   .row
     %a{:href => '#', 'data-reveal-id' => 'subscibeToGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
