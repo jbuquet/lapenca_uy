@@ -5,10 +5,12 @@
     .small-2.columns.team-score
       = text_field_tag "forecast[#{match_forecast.id}][team1_score]",
       match_forecast.forecasts.where(member_id: current_member.id).first.try(:team1_score),
-      class: match_forecast.team1.try(:name).try(:downcase)
+      class: match_forecast.team1.try(:name).try(:downcase),
+      disabled: true
     .small-2.columns.team-score
       = text_field_tag "forecast[#{match_forecast.id}][team2_score]",
       match_forecast.forecasts.where(member_id: current_member.id).first.try(:team2_score),
-      class: match_forecast.team2.try(:name).try(:downcase)
+      class: match_forecast.team2.try(:name).try(:downcase),
+      disabled: true
     .small-4.columns.team.right-team
       = match_forecast.team2.try :name
