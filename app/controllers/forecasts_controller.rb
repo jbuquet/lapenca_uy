@@ -4,7 +4,7 @@ class ForecastsController < ApplicationController
   # GET /forecasts
   # GET /forecasts.json
   def index
-    if (Date.parse('2014-06-11') < Time.zone.now.to_date && current_member.id != 62 && current_member.id != 57 && current_member.id <= 147)
+    if Date.parse('2014-06-11') < Time.zone.now.to_date
       @matches = Match.all.group_by(&:group).sort_by { |group, _| group }
       render :index_no_stage
     else
@@ -16,7 +16,7 @@ class ForecastsController < ApplicationController
   # POST /forecasts
   # POST /forecasts.json
   def create
-    if (Date.parse('2014-06-11') < Time.zone.now.to_date && current_member.id != 62 && current_member.id != 57 && current_member.id <= 147)
+    if Date.parse('2014-06-11') < Time.zone.now.to_date
       flash[:alert] = 'Ya no se pueden actualizar los pronosticos'
     else
       params.require(:forecast).each do |match_id, attrs|

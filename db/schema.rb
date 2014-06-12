@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 20140605234303) do
 
   create_table "forecasts", force: true do |t|
     t.integer  "match_id"
-    t.integer  "team1_score"
-    t.integer  "team2_score"
-    t.integer  "winner_id"
-    t.integer  "forecast_id"
+    t.integer  "team1_forecast_score"
+    t.integer  "team2_forecast_score"
+    t.integer  "forecast_winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
@@ -78,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140605234303) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "member_group_id"
     t.integer  "points"
     t.boolean  "is_admin",               default: false
     t.string   "name"

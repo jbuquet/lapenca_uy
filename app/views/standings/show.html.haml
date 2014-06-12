@@ -13,16 +13,3 @@
               %td.name
                 = user.name.present? ? user.name : user.email
               %td= user.points || 0
-
-  .row
-    %a{:href => '#', 'data-reveal-id' => 'subscibeToGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
-      Suscribirme a un grupo
-    - if current_member and current_member.is_admin
-      %a{:href => '#', 'data-reveal-id' => 'createAGroupModal', 'data-reveal' => true, :class => ['button', 'save-forecast-btn']}
-        Crear un grupo
-
-#subscibeToGroupModal.reveal-modal.tiny{'data-reveal' => true}
-  = render 'groups/subscribe'
-
-#createAGroupModal.reveal-modal.tiny{'data-reveal' => true}
-  = render 'groups/new'
