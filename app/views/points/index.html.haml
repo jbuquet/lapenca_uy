@@ -1,0 +1,18 @@
+.forecasts-container
+  .row
+    .group-standings-panel
+      .title
+        = 'Puntos a asignar'
+      %table
+        %tr.header
+          %th.name Participante
+          %th Puntos
+          - @points.each do |user|
+            %tr
+              %td.name
+                = user.name.present? ? user.name : user.email
+              %td= user.points_to_add || 0
+  %br
+  .row
+    = form_tag '/puntos', method: 'post' do
+      = submit_tag 'Asignar puntos', class: ['button', 'save-forecast-btn']

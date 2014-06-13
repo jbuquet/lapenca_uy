@@ -15,5 +15,5 @@ group :doc do
 end
 
 gem 'devise'
-gem 'pg', group: :production
+gem 'pg', group: [:production, :development]
 gem 'rails_12factor', group: :production

@@ -7,6 +7,7 @@ LapencaUy::Application.routes.draw do
     end
   end
 
+  resources :points, only: [:index, :create], path: 'puntos'
   resources :forecasts, only: [:index, :create], path: 'pronostico'
 
   get 'reglas', to: 'static_pages#rules'

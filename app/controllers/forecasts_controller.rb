@@ -4,11 +4,11 @@ class ForecastsController < ApplicationController
   # GET /forecasts
   # GET /forecasts.json
   def index
+    @matches = Match.where(stage: 32).all.sort_by(&:stage).reverse.sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group, _| group }
+
     if Date.parse('2014-06-11')
-      @matches = Match.all.group_by(&:group).sort_by { |group, _| group }
       render :index_no_stage
     else
-      @matches = Match.all.group_by(&:group).sort_by { |group, _| group }
       render :index_groups_stage
     end
   end

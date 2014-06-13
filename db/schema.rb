@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605234303) do
+ActiveRecord::Schema.define(version: 20140613041107) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "arenas", force: true do |t|
     t.string   "name"
@@ -23,9 +26,9 @@ ActiveRecord::Schema.define(version: 20140605234303) do
 
   create_table "forecasts", force: true do |t|
     t.integer  "match_id"
-    t.integer  "team1_forecast_score"
-    t.integer  "team2_forecast_score"
-    t.integer  "forecast_winner_id"
+    t.integer  "team1_score"
+    t.integer  "team2_score"
+    t.integer  "winner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "member_id"
@@ -44,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140605234303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "group"
+    t.integer  "stage"
+    t.integer  "pos_in_stage"
   end
 
   create_table "member_groups", force: true do |t|
@@ -60,9 +65,9 @@ ActiveRecord::Schema.define(version: 20140605234303) do
     t.datetime "updated_at"
   end
 
-  add_index "member_subscriptions", ["member_group_id", "member_id"], name: "index_member_subscriptions_on_member_group_id_and_member_id"
-  add_index "member_subscriptions", ["member_group_id"], name: "index_member_subscriptions_on_member_group_id"
-  add_index "member_subscriptions", ["member_id"], name: "index_member_subscriptions_on_member_id"
+  add_index "member_subscriptions", ["member_group_id", "member_id"], name: "index_member_subscriptions_on_member_group_id_and_member_id", using: :btree
+  add_index "member_subscriptions", ["member_group_id"], name: "index_member_subscriptions_on_member_group_id", using: :btree
+  add_index "member_subscriptions", ["member_id"], name: "index_member_subscriptions_on_member_id", using: :btree
 
   create_table "members", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -81,10 +86,11 @@ ActiveRecord::Schema.define(version: 20140605234303) do
     t.integer  "points"
     t.boolean  "is_admin",               default: false
     t.string   "name"
+    t.integer  "points_to_add",          default: 0
   end
 
-  add_index "members", ["email"], name: "index_members_on_email", unique: true
-  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
+  add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"

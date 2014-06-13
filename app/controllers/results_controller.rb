@@ -4,7 +4,7 @@ class ResultsController < ApplicationController
   # GET /resultados/actualizar
   # GET /resultados/actualizar.json
   def index
-    @matches = Match.all.sort_by { |match| match.id }.group_by(&:group).sort_by { |group| group }
+    @matches = Match.where(stage: 32).all.sort_by(&:stage).reverse.sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group| group }
   end
 
   # POST /resultados/actualizar
@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
     end
 
     flash[:notice] = 'Resultados actualizados correctamente'
-    redirect_to matches_path
+    redirect_to points_path
   end
 
   private
