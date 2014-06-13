@@ -6,7 +6,7 @@ class ForecastsController < ApplicationController
   def index
     @matches = Match.where(stage: 32).all.sort_by(&:stage).reverse.sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group, _| group }
 
-    if Date.parse('2014-06-11')
+    if (Date.parse('2014-06-11') && current_member.id != 76)
       render :index_no_stage
     else
       render :index_groups_stage
@@ -16,7 +16,7 @@ class ForecastsController < ApplicationController
   # POST /forecasts
   # POST /forecasts.json
   def create
-    if Date.parse('2014-06-11')
+    if (Date.parse('2014-06-11') && current_member.id != 76)
       flash[:alert] = 'Ya no se pueden actualizar los pronosticos'
     else
       params.require(:forecast).each do |match_id, attrs|
