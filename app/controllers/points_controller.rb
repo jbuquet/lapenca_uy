@@ -20,6 +20,16 @@ class PointsController < ApplicationController
     redirect_to matches_path
   end
 
+  # POST /puntos/recalcular
+  def recalculate
+    Member.includes(:forecasts).each do |member|
+      member.recalculate_points
+    end
+
+    flash[:notice] = 'Puntos recalculados correctamente'
+    redirect_to root_path
+  end
+
   private
   def require_admin
     unless current_member and current_member.is_admin

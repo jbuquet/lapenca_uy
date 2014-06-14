@@ -1,6 +1,8 @@
 class Forecast < ActiveRecord::Base
   belongs_to :member
   belongs_to :match
+  belongs_to :team1, :class_name => 'Team'
+  belongs_to :team2, :class_name => 'Team'
 
   def self.update_user_points(match)
     match.forecasts.each do |forecast|
