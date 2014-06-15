@@ -18,6 +18,9 @@ class Member < ActiveRecord::Base
     if (self.points_to_add > 0)
       self.points = self.points || 0
       self.points += self.points_to_add
+
+      self.points_to_add = 0
+
       self.save
     end
   end

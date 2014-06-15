@@ -4,7 +4,7 @@ class ResultsController < ApplicationController
   # GET /resultados/actualizar
   # GET /resultados/actualizar.json
   def index
-    @matches = Match.where(stage: 32).all.sort_by(&:stage).reverse.sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group| group }
+    @matches = Match.all
   end
 
   # POST /resultados/actualizar

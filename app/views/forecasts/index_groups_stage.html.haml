@@ -4,7 +4,7 @@
       = submit_tag 'Actualizar Pronostico', class: ['button', 'save-forecast-btn']
       %br
       .groups
-        - @matches.each do |group, matches|
+        - @matches.where(stage: 32).sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group, _| group }.each do |group, matches|
           .group-panel
             .title="Grupo #{group}"
             .matches
@@ -30,7 +30,7 @@
       %br
       = submit_tag 'Actualizar Pronostico', class: ['button', 'save-forecast-btn']
 
-  = render partial: 'playoffs/playoffs'
+  = render partial: 'playoffs'
 
 :javascript
   forecast()
