@@ -14,9 +14,9 @@ window.forecast = () ->
       @group_name = $group.find('.title').text().split(' ').pop()
       team_data = {team: team, pts: 0, gf: 0, gc: 0}
       sanitized = team.replace(///\ ///g, '.')
-      $("input.#{sanitized}").each (index, score) ->
+      $("input.#{sanitized}.group-stage").each (index, score) ->
         $score = $(score)
-        rival = $score.closest('.row').find("input:not(.#{sanitized})")
+        rival = $score.closest('.row').find("input:not(.#{sanitized}.group-stage)")
         if $score.val() != '' && rival.val() != ''
           result = $score.val() - rival.val()
           team_data['gf'] += parseInt($score.val())
@@ -58,4 +58,4 @@ addToPlayoffs = (team, index, group) ->
   id = position + '-' + group
   teamDiv = $('.playoffs').find('.team#'+id)
 
-  $(teamDiv).find('.name').text(team.team.titleize())
+  $(teamDiv).find('.name.forecast').text(team.team.titleize())

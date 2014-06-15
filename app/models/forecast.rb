@@ -72,4 +72,12 @@ class Forecast < ActiveRecord::Base
   def draw?
     team1_score == team2_score
   end
+
+  def loser_id
+    if winner_id == team1_id
+      team2_id
+    elsif winner_id == team2_id
+      team1_id
+    end
+  end
 end

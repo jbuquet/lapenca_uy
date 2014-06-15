@@ -8,8 +8,7 @@
             .content{id: "panel#{group}"}
               .row
                 .small-7.columns
-                  = render partial: 'match_forecast_disabled', collection: matches,
-                    as: :match_forecast
+                  = render partial: 'match_forecast_disabled', collection: matches, as: :match_forecast
                 .small-5.columns
                   - teams = Team.where(group: group)
                   .positions
@@ -26,7 +25,7 @@
                           %td.gf
                           %td.gc
 
-  = render partial: 'playoffs'
+    = render partial: 'playoffs_disabled'
 
 :javascript
   forecast()
