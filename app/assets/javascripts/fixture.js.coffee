@@ -14,9 +14,9 @@ window.fixture = () ->
       @group_name = $group.find('.title').text().split(' ').pop()
       team_data = {team: team, pts: 0, gf: 0, gc: 0}
       sanitized = team.replace(///\ ///g, '.')
-      $(".team-score.#{sanitized}").each (index, score) ->
+      $(".team-score.#{sanitized}.group-stage").each (index, score) ->
         $score = $(score)
-        rival = $score.closest('.row').find(".team-score:not(.#{sanitized})")
+        rival = $score.closest('.row').find(".team-score:not(.#{sanitized}.group-stage)")
         if $score.text() != '' && rival.text() != ''
           result = $score.text() - rival.text()
           team_data['gf'] += parseInt($score.text())
@@ -45,18 +45,8 @@ window.fixture = () ->
       team_html = team.team.titleize()
       if index < 2
         team_html = $('<strong></strong>').text team.team.titleize()
-        addToPlayoffs(team, index + 1, @group_name)
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
       $(tds[2]).text(team.gf)
       $(tds[3]).text(team.gc)
-
-addToPlayoffs = (team, index, group) ->
-  position = 'one' if index == 1
-  position = 'two' if index == 2
-
-  id = position + '-' + group
-  teamDiv = $('.playoffs').find('.team#'+id)
-
-  $(teamDiv).find('.name').text(team.team.titleize())

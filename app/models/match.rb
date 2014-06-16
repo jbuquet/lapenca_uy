@@ -36,4 +36,12 @@ class Match < ActiveRecord::Base
   def description
     "#{team1.try :name} #{team1_score || '*'} - #{team2_score || '*'} #{team2.try :name}"
   end
+
+  def loser_id
+    if winner_id == team1_id
+      team2_id
+    elsif winner_id == team2_id
+      team1_id
+    end
+  end
 end

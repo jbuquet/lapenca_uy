@@ -3,168 +3,52 @@
     -# OCTAVOS A
     .columns.stage.left-side
       .four
-        .match
-          #one-A.team
-            .name
-            .score
-              X
-          #two-B.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 1).first
       .four
-        .match
-          #one-C.team
-            .name
-            .score
-              X
-          #two-D.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 2).first
       .four
-        .match
-          #one-E.team
-            .name
-            .score
-              X
-          #two-F.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 5).first
       .four
-        .match
-          #one-G.team
-            .name
-            .score
-              X
-          #two-H.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 6).first
 
     -# CUARTOS A
     .columns.stage.left-side
       .two
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 8, pos_in_stage: 1).first
       .two
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 8, pos_in_stage: 2).first
 
     -# SEMIS A
     .columns.stage.left-side
       .one
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 4, pos_in_stage: 1).first
 
     -# FINAL
     .columns.stage.center-side
-      .one
-        .match
-          .team
-            .score
-              X
-          .team
-            .score
-              X
+      .three
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 2, pos_in_stage: 1).first
+      .three
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 2, pos_in_stage: 2).first
 
     -# SEMIS B
     .columns.stage.right-side
       .one
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 4, pos_in_stage: 2).first
 
     -# CUARTOS B
     .columns.stage.right-side
       .two
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 8, pos_in_stage: 3).first
       .two
-        .match
-          .team
-            .name
-            .score
-              X
-          .team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 8, pos_in_stage: 4).first
 
     -# OCTAVOS B
     .columns.stage.right-side
       .four
-        .match
-          #one-B.team
-            .name
-            .score
-              X
-          #two-A.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 3).first
       .four
-        .match
-          #one-D.team
-            .name
-            .score
-              X
-          #two-C.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 4).first
       .four
-        .match
-          #one-F.team
-            .name
-            .score
-              X
-          #two-E.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 7).first
       .four
-        .match
-          #one-H.team
-            .name
-            .score
-              X
-          #two-G.team
-            .name
-            .score
-              X
+        = render partial: 'playoff_match_disabled', object: @matches.where(stage: 16, pos_in_stage: 8).first

@@ -3,6 +3,7 @@
     - if current_member and current_member.is_admin
       = link_to 'Ir a Actualizar Resultados', results_path, class: ['button', 'save-forecast-btn']
       %br
+  .row
     .groups
     - @matches.where(stage: 32).sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group, _| group }.each do |group, matches|
       .group-panel

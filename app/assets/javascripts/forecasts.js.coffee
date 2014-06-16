@@ -44,18 +44,8 @@ window.forecast = () ->
       team_html = team.team.titleize()
       if index < 2
         team_html = $('<strong></strong>').text team.team.titleize()
-        addToPlayoffs(team, index + 1, @group_name)
 
       $(tds[0]).html(team_html)
       $(tds[1]).text(team.pts)
       $(tds[2]).text(team.gf)
       $(tds[3]).text(team.gc)
-
-addToPlayoffs = (team, index, group) ->
-  position = 'one' if index == 1
-  position = 'two' if index == 2
-
-  id = position + '-' + group
-  teamDiv = $('.playoffs').find('.team#'+id)
-
-  $(teamDiv).find('.name.forecast').text(team.team.titleize())

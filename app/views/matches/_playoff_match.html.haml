@@ -1,0 +1,19 @@
+.match
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match.stage == 16
+        = playoff_match.team1.try :name
+    .score
+      - if playoff_match.team1_score == playoff_match.team2_score && playoff_match.winner_id.present? && playoff_match.team1_id == playoff_match.winner_id
+        = "#{playoff_match.try(:team1_score)}*"
+      -else
+        = playoff_match.try(:team1_score)
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match.stage == 16
+        = playoff_match.team2.try :name
+    .score
+      - if playoff_match.team1_score == playoff_match.team2_score && playoff_match.winner_id.present? && playoff_match.team2_id == playoff_match.winner_id
+        = "#{playoff_match.try(:team2_score)}*"
+      -else
+        = playoff_match.try(:team2_score)

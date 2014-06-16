@@ -8,8 +8,8 @@ class ForecastsController < ApplicationController
 
     if (Date.parse('2014-06-11') >= Time.zone.now.to_date)
       render :index_groups_stage
-    # elsif Match.where(stage: 16, pos_in_stage: 1).first.team1_id.present?
-    #   render :index_playoffs_stage
+    elsif Match.where(stage: 16, pos_in_stage: 1).first.team1_id.present? and Date.parse('2014-06-27') >= Time.zone.now.to_date
+      render :index_playoffs_stage
     else
       render :index_no_stage
     end
@@ -18,11 +18,11 @@ class ForecastsController < ApplicationController
   # POST /forecasts
   # POST /forecasts.json
   def create
-    complete = true
-
     params.require(:forecast).sort_by{|match_id,_| match_id}.each do |match_id, attrs|
+      complete = true
+
       if attrs['team1_score'].present? and attrs['team2_score'].present?
-        # if (update_forecast_available(match))
+        if (update_forecast_available(match))
           team1_score = attrs['team1_score'].split('*').first.to_i
           team2_score = attrs['team2_score'].split('*').first.to_i
 
@@ -56,17 +56,17 @@ class ForecastsController < ApplicationController
                   parentMatch2 = Match.where(stage: 8, pos_in_stage: 4).first
                 end
               else
-                if match.pos_in_stage == 1
-                  # parentMatch1 = Match.where(stage: 4, pos_in_stage: 1).first
-                  # parentMatch2 = Match.where(stage: 4, pos_in_stage: 2).first
-                else
-                  parentMatch1 = Match.where(stage: 4, pos_in_stage: 1).first
-                  parentMatch2 = Match.where(stage: 4, pos_in_stage: 2).first
-                end
+                parentMatch1 = Match.where(stage: 4, pos_in_stage: 1).first
+                parentMatch2 = Match.where(stage: 4, pos_in_stage: 2).first
               end
 
-              attrs['team1_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch1.id).winner_id
-              attrs['team2_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch2.id).winner_id
+              if match.stage == 2 and match.pos_in_stage == 1
+                attrs['team1_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch1.id).loser_id
+                attrs['team2_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch2.id).loser_id
+              else
+                attrs['team1_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch1.id).winner_id
+                attrs['team2_id'] = Forecast.find_or_create_by(member_id: current_member.id, match_id: parentMatch2.id).winner_id
+              end
             end
 
             if team1_score > team2_score
@@ -88,7 +88,7 @@ class ForecastsController < ApplicationController
             user_forecast = Forecast.find_or_create_by(member_id: current_member.id, match_id: match_id)
             user_forecast.update_attributes(attrs)
           end
-        # end
+        end
       end
     end
 

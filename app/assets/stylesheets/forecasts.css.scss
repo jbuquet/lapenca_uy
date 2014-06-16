@@ -173,6 +173,25 @@
           padding-top: 14px;
         }
       }
+
+      .three {
+        height: 133px;
+        margin: 0px;
+
+        .match {
+          padding-top: 15px;
+
+          .team {
+            width: 50%;
+            float: left;
+
+            .score {
+              margin-left: 16px;
+            }
+          }
+        }
+      }
+
       .two {
         height: 200px;
         margin: 0px;
@@ -207,16 +226,24 @@
           }
 
           .score {
-            height: 28px;
-            width: 28px;
-            border: 1px solid #FFFFFF;
-            margin: 4px;
-            overflow: hidden;
+            font-size: 16px;
 
+            padding: 0;
+            margin: 0 6px;
+            width: 24px;
+            height: 30px;
             text-align: center;
-            line-height: 27px;
+            font-weight: bold;
 
-            color: darkred;
+            line-height: 30px;
+            vertical-align: middle;
+
+            background-color: transparent;
+            color: #FFFFFF;
+
+            border: 1px solid #FFFFFF;
+
+            overflow: hidden;
           }
         }
       }

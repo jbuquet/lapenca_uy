@@ -25,7 +25,9 @@
 
     -# FINAL
     .columns.stage.center-side
-      .one
+      .three
+        = render partial: 'playoff_match', object: @matches.where(stage: 2, pos_in_stage: 1).first
+      .three
         = render partial: 'playoff_match', object: @matches.where(stage: 2, pos_in_stage: 2).first
 
     -# SEMIS B
