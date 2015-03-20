@@ -1,0 +1,28 @@
+.match
+  - forecast = playoff_match.forecasts.where(member_id: current_member.id).first
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match.stage == 16
+        = playoff_match.team1.try :name
+    .score
+      - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team1_id == forecast.winner_id
+        = text_field_tag "forecast[#{playoff_match.id}][team1_score]",
+        "#{playoff_match.forecasts.where(member_id: current_member.id).first.try(:team1_score)}*",
+        class: playoff_match.team1.try(:name).try(:downcase)
+      -else
+        = text_field_tag "forecast[#{playoff_match.id}][team1_score]",
+        playoff_match.forecasts.where(member_id: current_member.id).first.try(:team1_score),
+        class: playoff_match.team1.try(:name).try(:downcase)
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match.stage == 16
+        = playoff_match.team2.try :name
+    .score
+      - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team2_id == forecast.winner_id
+        = text_field_tag "forecast[#{playoff_match.id}][team2_score]",
+        "#{playoff_match.forecasts.where(member_id: current_member.id).first.try(:team2_score)}*",
+        class: playoff_match.team2.try(:name).try(:downcase)
+      -else
+        = text_field_tag "forecast[#{playoff_match.id}][team2_score]",
+        playoff_match.forecasts.where(member_id: current_member.id).first.try(:team2_score),
+        class: playoff_match.team2.try(:name).try(:downcase)

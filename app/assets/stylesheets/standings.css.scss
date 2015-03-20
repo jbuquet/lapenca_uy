@@ -1,0 +1,68 @@
+// Place all the styles related to the Standings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.group-standings-panel {
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 20px 15px;
+  display: inline-block;
+  color: #FFFFFF;
+  padding: 10px;
+
+  .title {
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  table {
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    table-layout: fixed;
+    width: 400px;
+
+    tr {
+      width: 400px;
+      height: 45px;
+      white-space: nowrap;
+
+      color: #FFFFFF;
+
+      background-color: transparent !important;
+
+      th {
+        width: 100px;
+        color: #FFFFFF;
+        border-bottom: 1px solid #FFFFFF;
+        text-align: right;
+
+        &.name {
+          width: 300px;
+          text-align: left;
+        }
+      }
+
+      td {
+        width:100px;
+        color: #FFFFFF;
+        overflow: hidden;
+        font-size: 16px;
+        text-align: right;
+
+        &.name {
+          width: 300px;
+          font-size: 16px;
+          text-align: left;
+
+          strong {
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Pronostica el Mundial
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    - if current_member
+      = render 'layouts/header'
+    - if notice
+      .alert-box.success= notice
+    - if alert
+      .alert-box.alert= alert
+    - if current_member
+      .page-container
+        = yield
+    - else
+      = yield

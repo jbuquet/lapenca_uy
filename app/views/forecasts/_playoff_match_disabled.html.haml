@@ -1,0 +1,32 @@
+.match
+  - forecast = playoff_match_disabled.forecasts.where(member_id: current_member.id).first
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match_disabled.stage == 16
+        = playoff_match_disabled.team1.try :name
+    .score
+      - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team1_id == forecast.winner_id
+        = text_field_tag "forecast[#{playoff_match_disabled.id}][team1_score]",
+        "#{playoff_match_disabled.forecasts.where(member_id: current_member.id).first.try(:team1_score)}*",
+        class: playoff_match_disabled.team1.try(:name).try(:downcase),
+        disabled: true
+      -else
+        = text_field_tag "forecast[#{playoff_match_disabled.id}][team1_score]",
+        playoff_match_disabled.forecasts.where(member_id: current_member.id).first.try(:team1_score),
+        class: playoff_match_disabled.team1.try(:name).try(:downcase),
+        disabled: true
+  = content_tag :div, class: 'team' do
+    .name
+      - if playoff_match_disabled.stage == 16
+        = playoff_match_disabled.team2.try :name
+    .score
+      - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team2_id == forecast.winner_id
+        = text_field_tag "forecast[#{playoff_match_disabled.id}][team2_score]",
+        "#{playoff_match_disabled.forecasts.where(member_id: current_member.id).first.try(:team2_score)}*",
+        class: playoff_match_disabled.team2.try(:name).try(:downcase),
+        disabled: true
+      -else
+        = text_field_tag "forecast[#{playoff_match_disabled.id}][team2_score]",
+        playoff_match_disabled.forecasts.where(member_id: current_member.id).first.try(:team2_score),
+        class: playoff_match_disabled.team2.try(:name).try(:downcase),
+        disabled: true

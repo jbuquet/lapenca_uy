@@ -1,0 +1,24 @@
+.match
+  = content_tag :div, class: 'team' do
+    .name= playoff_match.team1.try :name
+    .score
+      - if playoff_match.team1_score == playoff_match.team2_score && playoff_match.winner_id.present? && playoff_match.team1_id == playoff_match.winner_id
+        = text_field_tag "result[#{playoff_match.id}][team1_score]",
+        "#{playoff_match.try(:team1_score)}*",
+        class: playoff_match.team1.try(:name).try(:downcase)
+      -else
+        = text_field_tag "result[#{playoff_match.id}][team1_score]",
+        playoff_match.try(:team1_score),
+        class: playoff_match.team1.try(:name).try(:downcase)
+
+  = content_tag :div, class: 'team' do
+    .name= playoff_match.team2.try :name
+    .score
+      - if playoff_match.team1_score == playoff_match.team2_score && playoff_match.winner_id.present? && playoff_match.team2_id == playoff_match.winner_id
+        = text_field_tag "result[#{playoff_match.id}][team2_score]",
+        "#{playoff_match.try(:team2_score)}*",
+        class: playoff_match.team2.try(:name).try(:downcase)
+      -else
+        = text_field_tag "result[#{playoff_match.id}][team2_score]",
+        playoff_match.try(:team2_score),
+        class: playoff_match.team2.try(:name).try(:downcase)

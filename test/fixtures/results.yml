@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_id: 1
+  team1_score: 1
+  team2_score: 1
+  winner_id: 1
+  forecast_id: 1
+
+two:
+  match_id: 1
+  team1_score: 1
+  team2_score: 1
+  winner_id: 1
+  forecast_id: 1

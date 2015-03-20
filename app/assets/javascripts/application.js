@@ -13,4 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require foundation.min
+//= require foundation/foundation.topbar
 //= require_tree .
+//= require_self
+
+String.prototype.titleize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+function ready(){
+  $(document).foundation();
+
+  $('li .row.match').on('change keyup', 'input', function(ev){
+    forecast();
+  });
+  $('dd').on('click', 'a', function(ev){
+    setTimeout(forecast, 50);
+  });
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -1,0 +1,20 @@
+= form_for(@member, url: registration_path(@member)) do |f|
+  %div
+    = f.label :name, 'Nombre Completo'
+    %br
+    = f.text_field :name, autofocus:true
+  %div
+    = f.label :email, 'Email'
+    %br
+    = f.email_field :email
+  %div
+    = f.label :password, 'Contraseña'
+    %br
+    = f.password_field :password, autocomplete: 'off'
+  %div
+    = f.label :password_confirmation, 'Confirmacion'
+    %br
+    = f.password_field :password_confirmation, autocomplete: 'off'
+
+  = f.submit 'Registrarme', class: 'button signup-btn'
+  

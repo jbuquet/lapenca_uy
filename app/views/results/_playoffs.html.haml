@@ -1,0 +1,54 @@
+.row
+  .playoffs
+    -# OCTAVOS A
+    .columns.stage.left-side
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 1).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 2).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 5).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 6).first
+
+    -# CUARTOS A
+    .columns.stage.left-side
+      .two
+        = render partial: 'playoff_match', object: @matches.where(stage: 8, pos_in_stage: 1).first
+      .two
+        = render partial: 'playoff_match', object: @matches.where(stage: 8, pos_in_stage: 2).first
+
+    -# SEMIS A
+    .columns.stage.left-side
+      .one
+        = render partial: 'playoff_match', object: @matches.where(stage: 4, pos_in_stage: 1).first
+
+    -# FINAL
+    .columns.stage.center-side
+      .three
+        = render partial: 'playoff_match', object: @matches.where(stage: 2, pos_in_stage: 1).first
+      .three
+        = render partial: 'playoff_match', object: @matches.where(stage: 2, pos_in_stage: 2).first
+
+    -# SEMIS B
+    .columns.stage.right-side
+      .one
+        = render partial: 'playoff_match', object: @matches.where(stage: 4, pos_in_stage: 2).first
+
+    -# CUARTOS B
+    .columns.stage.right-side
+      .two
+        = render partial: 'playoff_match', object: @matches.where(stage: 8, pos_in_stage: 3).first
+      .two
+        = render partial: 'playoff_match', object: @matches.where(stage: 8, pos_in_stage: 4).first
+
+    -# OCTAVOS B
+    .columns.stage.right-side
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 3).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 4).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 7).first
+      .four
+        = render partial: 'playoff_match', object: @matches.where(stage: 16, pos_in_stage: 8).first

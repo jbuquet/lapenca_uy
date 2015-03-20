@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require normalize
+ *= require foundation.min
+ *
+ *= require devise/login
+ *= require layouts
+ *
  *= require_tree .
  */
