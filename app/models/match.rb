@@ -1,10 +1,8 @@
 class Match < ActiveRecord::Base
   #validates :date, presence: true
-  #validates :arena_id, presence: true
 
   belongs_to :team1, :class_name => 'Team'
   belongs_to :team2, :class_name => 'Team'
-  belongs_to :arena
   has_many   :forecasts
 
   def winner
