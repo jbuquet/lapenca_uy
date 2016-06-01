@@ -2,11 +2,11 @@
   .row
     .group-standings-panel
       .title
-        = 'Puntos a asignar'
+        = 'Points to assign'
       %table
         %tr.header
-          %th.name Participante
-          %th Puntos
+          %th.name Participant
+          %th Points
           - @points.each do |user|
             %tr
               %td.name
@@ -15,4 +15,4 @@
 
   .row
     = form_tag '/puntos', method: 'post' do
-      = submit_tag 'Asignar puntos', class: ['button', 'save-forecast-btn']
+      = submit_tag 'Assign points', class: ['button', 'save-forecast-btn']

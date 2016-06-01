@@ -9,7 +9,6 @@ class CreateMatches < ActiveRecord::Migration
       t.string :team2_description
       t.integer :team2_score
       t.integer :winner_id
-      t.integer :arena_id
 
       t.timestamps
     end

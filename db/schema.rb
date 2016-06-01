@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601254500) do
+ActiveRecord::Schema.define(version: 20140614154500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20160601254500) do
     t.string   "team2_description"
     t.integer  "team2_score"
     t.integer  "winner_id"
-    t.integer  "arena_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "group"
@@ -47,7 +46,6 @@ ActiveRecord::Schema.define(version: 20160601254500) do
 
   create_table "member_groups", force: true do |t|
     t.string   "group_name"
-    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

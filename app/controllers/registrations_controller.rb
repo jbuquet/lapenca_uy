@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     # Set our custom properties
     resource.points = 0
+    resource.member_groups << MemberGroup.first
 
     resource_saved = resource.save
     yield resource if block_given?

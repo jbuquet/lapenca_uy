@@ -2,7 +2,7 @@
   - forecast = playoff_match_disabled.forecasts.where(member_id: current_member.id).first
   = content_tag :div, class: 'team' do
     .name
-      - if playoff_match_disabled.stage == 16
+      - if playoff_match_disabled.stage == 8
         = playoff_match_disabled.team1.try :name
     .score
       - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team1_id == forecast.winner_id
@@ -17,7 +17,7 @@
         disabled: true
   = content_tag :div, class: 'team' do
     .name
-      - if playoff_match_disabled.stage == 16
+      - if playoff_match_disabled.stage == 8
         = playoff_match_disabled.team2.try :name
     .score
       - if forecast.present? && forecast.team1_score == forecast.team2_score && forecast.winner_id.present? && forecast.team2_id == forecast.winner_id

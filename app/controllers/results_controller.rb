@@ -19,26 +19,12 @@ class ResultsController < ApplicationController
         team1_score = attrs['team1_score'].split('*').first.to_i
         team2_score = attrs['team2_score'].split('*').first.to_i
 
-        if match.stage <= 16
+        if match.stage <= 8
           attrs['team1_id'] = match.team1_id
           attrs['team2_id'] = match.team2_id
 
-          if match.stage < 16
-            if match.stage == 8
-              if match.pos_in_stage == 1
-                parentMatch1 = Match.where(stage: 16, pos_in_stage: 1).first
-                parentMatch2 = Match.where(stage: 16, pos_in_stage: 2).first
-              elsif match.pos_in_stage == 2
-                parentMatch1 = Match.where(stage: 16, pos_in_stage: 5).first
-                parentMatch2 = Match.where(stage: 16, pos_in_stage: 6).first
-              elsif match.pos_in_stage == 3
-                parentMatch1 = Match.where(stage: 16, pos_in_stage: 3).first
-                parentMatch2 = Match.where(stage: 16, pos_in_stage: 4).first
-              elsif match.pos_in_stage == 4
-                parentMatch1 = Match.where(stage: 16, pos_in_stage: 7).first
-                parentMatch2 = Match.where(stage: 16, pos_in_stage: 8).first
-              end
-            elsif match.stage == 4
+          if match.stage < 8
+            if match.stage == 4
               if match.pos_in_stage == 1
                 parentMatch1 = Match.where(stage: 8, pos_in_stage: 1).first
                 parentMatch2 = Match.where(stage: 8, pos_in_stage: 2).first

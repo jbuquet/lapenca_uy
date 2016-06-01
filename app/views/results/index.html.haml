@@ -1,13 +1,13 @@
 .forecasts-container
   = form_tag '/resultados/actualizar' do
     .row
-      = submit_tag 'Actualizar Resultados', class: ['button', 'save-forecast-btn']
+      = submit_tag 'Save new results', class: ['button', 'save-forecast-btn']
       %br
     .row
       .groups
         - @matches.where(stage: 32).sort_by(&:pos_in_stage).group_by(&:group).sort_by { |group, _| group }.each do |group, matches|
           .group-panel
-            .title="Grupo #{group}"
+            .title="Group #{group}"
             .matches
               .content{id: "panel#{group}"}
                 .row
@@ -18,7 +18,7 @@
                     .positions
                       %table{data: {teams: teams.map { |t| t.name.downcase }}}
                         %tr.header
-                          %th.team Equipo
+                          %th.team Team
                           %th pts
                           %th gf
                           %th gc

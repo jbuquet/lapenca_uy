@@ -6,9 +6,9 @@ class ForecastsController < ApplicationController
   def index
     @matches = Match.all
 
-    if (Date.parse('2014-06-11') >= Time.zone.now.to_date)
+    if (Date.parse('2016-06-3') >= Time.zone.now.to_date)
       render :index_groups_stage
-    elsif Match.where(stage: 16, pos_in_stage: 1).first.team1_id.present? and Date.parse('2014-06-27') >= Time.zone.now.to_date
+    elsif Match.where(stage: 8, pos_in_stage: 1).first.team1_id.present? and Date.parse('2014-06-27') >= Time.zone.now.to_date
       render :index_playoffs_stage
     else
       render :index_no_stage
@@ -20,6 +20,7 @@ class ForecastsController < ApplicationController
   def create
     params.require(:forecast).sort_by{|match_id,_| match_id}.each do |match_id, attrs|
       complete = true
+      match = Match.find(match_id)
 
       if attrs['team1_score'].present? and attrs['team2_score'].present?
         if (update_forecast_available(match))
@@ -28,26 +29,12 @@ class ForecastsController < ApplicationController
 
           match = Match.find(match_id)
 
-          if match.stage <= 16
-            if match.stage == 16
+          if match.stage <= 8
+            if match.stage == 8
               attrs['team1_id'] = match.team1_id
               attrs['team2_id'] = match.team2_id
             else
-              if match.stage == 8
-                if match.pos_in_stage == 1
-                  parentMatch1 = Match.where(stage: 16, pos_in_stage: 1).first
-                  parentMatch2 = Match.where(stage: 16, pos_in_stage: 2).first
-                elsif match.pos_in_stage == 2
-                  parentMatch1 = Match.where(stage: 16, pos_in_stage: 5).first
-                  parentMatch2 = Match.where(stage: 16, pos_in_stage: 6).first
-                elsif match.pos_in_stage == 3
-                  parentMatch1 = Match.where(stage: 16, pos_in_stage: 3).first
-                  parentMatch2 = Match.where(stage: 16, pos_in_stage: 4).first
-                elsif match.pos_in_stage == 4
-                  parentMatch1 = Match.where(stage: 16, pos_in_stage: 7).first
-                  parentMatch2 = Match.where(stage: 16, pos_in_stage: 8).first
-                end
-              elsif match.stage == 4
+              if match.stage == 4
                 if match.pos_in_stage == 1
                   parentMatch1 = Match.where(stage: 8, pos_in_stage: 1).first
                   parentMatch2 = Match.where(stage: 8, pos_in_stage: 2).first
@@ -104,7 +91,7 @@ class ForecastsController < ApplicationController
     end
 
     def update_forecast_available(match)
-      (match.stage == 32 and Date.parse('2014-06-11') >= Time.zone.now.to_date) or
-          (match.stage != 32 and Date.parse('2014-06-27') >= Time.zone.now.to_date)
+      (match.stage == 32 and Date.parse('2016-06-3') >= Time.zone.now.to_date) or
+          (match.stage != 32 and Date.parse('2016-06-15') >= Time.zone.now.to_date)
     end
 end

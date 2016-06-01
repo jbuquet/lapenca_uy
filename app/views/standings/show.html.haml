@@ -2,7 +2,7 @@
   - if (current_member.is_admin)
     .row
       = form_tag '/puntos/recalcular', method: 'post' do
-        = submit_tag 'Recalcular puntos', class: ['button', 'save-forecast-btn']
+        = submit_tag 'Recalculate points', class: ['button', 'save-forecast-btn']
 
   .row
     - @standings.each_pair do |group, participants|
@@ -11,8 +11,8 @@
           = group
         %table
           %tr.header
-            %th.name Participante
-            %th Puntos
+            %th.name Participant
+            %th Points
           - participants.each do |user|
             %tr
               %td.name
