@@ -17,25 +17,25 @@ class Forecast < ActiveRecord::Base
       reasons = []
       if match.team1_score.present? && match.team2_score.present?
         if match.result_sym == result_sym && correct_match?
-          points += 20
+          points += 3
           reasons << :winner_draw
         end
         if match.team1_score == team1_score && correct_match?
-          points += 10
+          points += 1
           reasons << :team1_score
         end
         if match.team2_score == team2_score && correct_match?
-          points += 10
+          points += 1
           reasons << :team2_score
         end
-        if match.team1_score == team1_score && match.team2_score == team2_score && correct_match?
-          points += 10
-          reasons << :exact_result
-        end
-        if !correct_match? and winner_id.present? and winner_id == match.winner_id
-          points += 20
-          reasons << :advancing_team
-        end
+        # if match.team1_score == team1_score && match.team2_score == team2_score && correct_match?
+        #   points += 1
+        #   reasons << :exact_result
+        # end
+        # if !correct_match? and winner_id.present? and winner_id == match.winner_id
+        #   points += 20
+        #   reasons << :advancing_team
+        # end
       end
 
       member_info = member.try(:full_name) || 'Unknown'
